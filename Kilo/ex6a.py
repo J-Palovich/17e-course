@@ -362,10 +362,101 @@ import time
 #     print(f"Ok, {color} is a nice color.")
 
 ########################################################################################################################################################################################################################################################################################################################################################################################################################
+
+## 29
+## Copy and modify the previous example so that in
+## every iteration of the loop, it asks the user for the name of an animal,
+## and then it displays "The ____ says 'meow'."
+
+# while 1 == 1:
+#     a = input("Name an animal\n")
+#     print(f"The {a} says 'meow'.")
+
 ########################################################################################################################################################################################################################################################################################################################################################################################################################
+
+## 30
+## Copy and modify the previous example so that
+## it asks for both the name of the animal and what the animal says,
+## and then displays "The ___ says '___'."
+
+# while True:
+#     a = input("Name an animal\n")
+#     s = input(f"What does the {a} say?l\n")
+#     print(f"The {a} says '{s}'.")
+
 #######################################################################################################################################################################################################################################################################################################################################################################################################################
+
+## 31
+## Copy and modify the previous example so that
+## if the animal is "cat" and the sound is "meow",
+## it exits the loop.
+## The command for exiting the loop is `break`.
+## An example of how to use `break` is below.
+
+# a = ''
+# s = ''
+# while a.lower() != 'cat' and s.lower() != 'meow':
+#     a = input("Name an animal\n")
+#     s = input(f"What does the {a} say?\n")
+#     print(f"The {a} says '{s}'.\n")
+
+
 ########################################################################################################################################################################################################################################################################################################################################################################################################################
+
+## 32
+## Try this.
+
+# print("Welcome to another version of the number doubler.")
+
+# while True:
+#     try:
+#         num = int(input("Type a number, or type -1 to quit: "))
+#         if num == -1:
+#             break
+#         print(f"Double your num is {num * 2}.")
+#     except Exception:
+#         print('Please enter a valid whole number\n')
+
 ########################################################################################################################################################################################################################################################################################################################################################################################################################
+
+## 33
+## Make a word guesser:
+##  - When the program starts, display "Welcome to the word guesser!"
+##  - Ask the user to guess the secret word.
+##  - If the user guesses the word correctly, display "You got it!" and exit the loop.
+##  - If the user guesses incorrectly, then randomly display one of these replies:
+##        "Not yet, try again."
+##        "I bet you'll get it, keep trying!"
+##        "That's not it."
+##        "I appreciate your patience, but you haven't guessed it yet."
+##  - The program must loop to allow the user to continue guessing until he/she correctly guesses the secret word.
+##  - The program must allow the user to guess the word regardless of capitalization.
+##      Recommended: refer back to the exercise that used .lower() .
+
+# print("Welcome to the number squared tool")
+# num = 0
+# while num != -1:
+#     num = int(input("Type a number, or type -1 to quit: "))
+#     if num == -1:
+#         break
+#     print(f"Your num squared {num ** 2}.")
+
+import random
+
+print('WELCOME TO THEE JUNGLE!\n')
+guess =''
+secretWord = 'joe borrow'
+wrongReplies = ['Not Quiet', 'Keep Looking', 'Look Harder']
+
+while guess.lower() != secretWord:
+    guess = input('What might you find in The Jungle?\n')
+    print(random.choice(wrongReplies))
+    
+
+print('WHO DEY!')
+
+
+
 ########################################################################################################################################################################################################################################################################################################################################################################################################################
 #######################################################################################################################################################################################################################################################################################################################################################################################################################
 ########################################################################################################################################################################################################################################################################################################################################################################################################################
