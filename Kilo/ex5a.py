@@ -86,7 +86,7 @@
 # Copy and modify the previous example so it outputs each letter from the user input followed by "!". For example:
 # H!
 # e!
-# l!
+# l!git@github.com:J-Palovich/17e-course.git
 # l!
 # o!
 # skips spaces
@@ -115,7 +115,7 @@
 # for num in range(1,7):
 #     print(num)
 
-############################################################################################################################################################################################################
+###########################################git@github.com:J-Palovich/17e-course.git#################################################################################################################################################################
 
 # 10
 # For each of the integers 1 to 5, print that number squared.
@@ -170,8 +170,9 @@
 # 11 divided by 4 would have a remainder of ____.
 # 12 divided by 4 would have a remainder of ____.
 # Here's a hint. You'll most likely change the a, b, and c.
-for a in range(b, c):
-    print(f"___ divided by 4 would have a remainder of ___")
+
+# for a in range(12):
+#     print(f"{a} divided by 4 would have a remainder of {a % 4}")
     
 ############################################################################################################################################################################################################
 ############################################################################################################################################################################################################
