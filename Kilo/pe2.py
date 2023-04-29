@@ -35,20 +35,36 @@
 
 # Below is the Short-hand answer for the prompt above
 # the below code uses a nested for loop that uses indexing to read through the lists
+# the for loop runs through every number in numProvided (values in the list of inputs)
+
+# this is believed to be ideal for it is required that every int in the list needs
+#    to be ran through
+
+# whereas the second for loop uses indexing to pair the first item in conName and the first
+#   item in conAb to be paired and so on for all items in the lists.
+
+# each item in list conName and conAb occurs once per item in numProvided in the respected order
+
+# I realized as I was reviewing the code that using len(conName) and/or 4 for the stop in range
+#   would yield the same result, additionally, this only works since the length of
+#   conName and conAb are the same length, adding an item to conName will result in an error
+#   and adding an item to conAb will result in any additional item greater than the length
+#   of conName to be ignored
 
 
 
 
 num1 = int(input('Please enter first integer:\n'))
 num2 = int(input('Please enter second integer:\n'))
+
 sum = num1 + num2
 numProvided = [num1, num2]
 conName = ['decimal', 'binary', 'octal', 'hexadecimal']
-conAb = ['d', 'b', 'o', 'x']
+conAb = ['d', 'b', 'o', 'x',]
 
 for num in numProvided:
     for i in range(0, len(conName)):
-          print(f'{num} in {conName[i]} is: {num:{conAb[i]}}')
+        print(f'{num} in {conName[i]} is: {num:{conAb[i]}}')
     print()
 
 ############################################################################################################################################################################################################

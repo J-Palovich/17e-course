@@ -440,20 +440,24 @@ import time
 #     if num == -1:
 #         break
 #     print(f"Your num squared {num ** 2}.")
+# Think about the order in which things run to insert break in the appropriate location
 
 import random
 
-print('WELCOME TO THEE JUNGLE!\n')
-guess =''
-secretWord = 'joe borrow'
-wrongReplies = ['Not Quiet', 'Keep Looking', 'Look Harder']
+# print('WELCOME TO THEE JUNGLE!\n')
+# guess =''
+# secretWord = 'joe borrow'
+# wrongReplies = ['Not Quiet', 'Keep Looking', 'Look Harder']
 
-while guess.lower() != secretWord:
-    guess = input('What might you find in The Jungle?\n')
-    print(random.choice(wrongReplies))
+# while guess.lower() != secretWord:
+#     guess = input('What might you find in The Jungle?\n')
+#     if guess.lower() == secretWord:
+#         break
+#     print(random.choice(wrongReplies))
+
     
 
-print('WHO DEY!')
+# print('WHO DEY!')
 
 
 
