@@ -455,14 +455,55 @@ import random
 #         break
 #     print(random.choice(wrongReplies))
 
-    
-
 # print('WHO DEY!')
 
-
-
 ########################################################################################################################################################################################################################################################################################################################################################################################################################
+
+## 34
+## Make a remainder study tool:
+## Have Python pick a random number between 20 and 100.
+## Ask the user: "If you divided {the_randomly_chosen_number} by 12, what would be the remainder?"
+## Allow the user to guess repeatedly until the user correctly guesses the remainder.
+## Example run:
+## If you divided 27 by 12, what would be the remainder?
+## Guess: 5
+## Guess: 2
+## Guess: 3
+## You got it!
+
+# print('Welcome to Guess The Remainder\n')
+# numRan = random.randint(20,101)
+# numGuess = -1
+# remainder = numRan % 12
+# print(f'If you divided {numRan} by 12, what would be the remainder?')
+
+# while numGuess != remainder:
+#     numGuess = int(input('Guess: '))
+#     if numGuess == remainder:
+#         print('You git it!')
+#         break
+
 #######################################################################################################################################################################################################################################################################################################################################################################################################################
+
+## 35
+## (challenge question)
+## {Do this exercise after you've learned to write files.}
+## Display "This is a grade tracking helper."
+## Open a file named "physics_grades.csv" for writing.
+## Write to the file: "StudentName,StudentGrade"
+## Ask the user: "What is the total number of questions for this assignment? "
+## In a loop:
+##    Ask the user: "What is the student name? (Press enter with no name to exit.) "
+##    If the user entered nothing, then close the file, display "Exiting..." and exit the loop.
+##    If the user entered a name:
+##      Ask the user: "How many questions did that student answer correctly? "
+##      Compute the percent score for that student.
+##      Display the percent, rounded to 2 decimal places.
+##      Write to the file: "Bob,92.36%" (but with the actual name and percent instead).
+## NOTE: After you have tested your program, try opening the physics_grades.csv file in a spreadsheet program such as Libreoffice Calc.
+
+
+
 ########################################################################################################################################################################################################################################################################################################################################################################################################################
 ########################################################################################################################################################################################################################################################################################################################################################################################################################
 ########################################################################################################################################################################################################################################################################################################################################################################################################################
