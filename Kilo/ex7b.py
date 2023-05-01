@@ -171,12 +171,16 @@ import csv
 # SUGGESTION: This can be done using two, nested "with open()" commands.  The first opens the writing file, and 
 #             the 2nd may be nested in the first and opens the data file.
 
-import pandas as p
+import pandas as pd
 import glob
 
 # list all csv files only
-csvFiles = glob.glob('*.csv')
+csvFiles = glob.glob('Kilo/*.csv')
+print(csvFiles)
+print()
 
-csvAppend = p.DataFrame()
-for file in csvFiles:
-    
+df_csv_concat = pd.concat([pd.read_csv(file) for file in csvFiles ], ignore_index=True)
+print(df_csv_concat)
+
+
+
