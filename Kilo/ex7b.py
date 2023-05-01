@@ -170,17 +170,24 @@ import csv
 #     "ex7b-data2.csv"  # Destination
 # SUGGESTION: This can be done using two, nested "with open()" commands.  The first opens the writing file, and 
 #             the 2nd may be nested in the first and opens the data file.
+# pandas .append() no longer accepted, use pandas .concat()
+
+# need to merge two files to one
+# I got the files to display concatenated
 
 import pandas as pd
 import glob
+import os
 
+print()
 # list all csv files only
 csvFiles = glob.glob('Kilo/*.csv')
 print(csvFiles)
 print()
 
-df_csv_concat = pd.concat([pd.read_csv(file) for file in csvFiles ], ignore_index=True)
-print(df_csv_concat)
+df = pd.concat([pd.read_csv(file) for file in csvFiles ], ignore_index=True)
+print(df)
+print()
 
-
+# df1 = pd.concat([pd.merge(file) for file in csvFiles ], ignore_index=True)
 
