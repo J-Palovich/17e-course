@@ -19,15 +19,7 @@ magicWords = ['banana', 'hope', 'stars',
 word = random.choice(magicWords)
 count = 1
 
-def congrats():
-    if guess.lower() == word:
-        print(f"Congratulations! You guessed the word in '{word}' in {count} guesses.\n")
-        playAgain = input(f'Would you like to play again? \n')
-        if playAgain.lower() != 'yes':
-            print('Thank you for playing!')
-            # count = 1
-
-congrats()            
+           
 
 while playAgain.lower() == 'yes':
 
@@ -39,7 +31,13 @@ while playAgain.lower() == 'yes':
             count += 1
         guess = input(f'Guess {count}: ')
 
-        congrats()
+        if guess.lower() == word:
+            print(f"Congratulations! You guessed the word in '{word}' in {count} guesses.\n")
+            playAgain = input(f'Would you like to play again? \n')
+            if playAgain.lower() != 'yes':
+                print('Thank you for playing!')
+            count = 1
+
 
 
         
