@@ -30,7 +30,7 @@ while gameChoice != 'q':
                     'whiskey', 'fight', 'money']
         word = random.choice(magicWords)
         hints = [f'The word starts with a {word[0]}',
-                f'The word ends with a {word[-1]}'
+                f'The word ends with a {word[-1]}',
                 f'The word has a {word[3]} in it']
         count = 1
     # ----------------------------------------------------------------------------------------------------------------------#
