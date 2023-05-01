@@ -10,42 +10,89 @@
 # Make a number guessing game. Give the user feedback with
 # each guess: "Too high" or "Too low".
 
+# ----------------------------------------------------------------------------------------------------------------------#
 import random
-playAgain = 'yes'
-print()
-guess = ''
-magicWords = ['banana', 'hope', 'stars',
-             'whiskey', 'fight', 'money']
-word = random.choice(magicWords)
-hints = [f'The word starts with a {word[0]}',
-         f'The word ends with a {word[-1]}'
-         f'The word has a {word[3]} in it']
-count = 1
+gameChoice = ''
+print('Welcome to the games terminal!')
 
-while playAgain.lower() == 'yes':
+while gameChoice != 'q':
 
-    print('Welcome to the word guessing game!\n')
-    guess = input('Take your first guess at my word: ')
+    gameChoice = input("Would you like to play 'Word Guess' or 'Number Guesser'? (Enter w or n): ")
+    print()
+    # ----------------------------------------------------------------------------------------------------------------------#
+    # WORD GUESSING GAME
+    if gameChoice.lower() == 'w':
 
-    while guess.lower() != word:
-        if guess.lower() != word:
-            count += 1
-        if count == 3 or count == 6 or count == 9:
-            hint = input('Would you like a hint? (yes / no):\n')
-            if hint.lower() == 'yes':
-                print(random.choice(hints))
-        guess = input(f'Guess {count}: ')
+        playAgain = 'yes'
+        print()
+        wordGuess = ''
+        magicWords = ['banana', 'hope', 'stars',
+                    'whiskey', 'fight', 'money']
+        word = random.choice(magicWords)
+        hints = [f'The word starts with a {word[0]}',
+                f'The word ends with a {word[-1]}'
+                f'The word has a {word[3]} in it']
+        count = 1
+    # ----------------------------------------------------------------------------------------------------------------------#
+        while playAgain.lower() == 'yes':
 
-        if guess.lower() == word:
-            print(f"Congratulations! You guessed the word in '{word}' in {count} guesses.\n")
-            playAgain = input(f'Would you like to play again? \n')
-            count = 1
-            if playAgain.lower() != 'yes':
-                print('Thank you for playing!')
-            
+            print('Welcome to the word guessing game!\n')
+            wordGuess = input('Take your first guess at my word: ')
+    # ----------------------------------------------------------------------------------------------------------------------#
+            while wordGuess.lower() != word:
+                if wordGuess.lower() != word:
+                    count += 1
+                if count == 3 or count == 6 or count == 9:
+                    hint = input('Would you like a hint? (yes / no):\n')
+                    if hint.lower() == 'yes':
+                        print(random.choice(hints))
+                wordGuess = input(f'Guess {count}: ')
+    # ----------------------------------------------------------------------------------------------------------------------#
+                if wordGuess.lower() == word:
+                    print(f"Congratulations! You guessed the word in '{word}' in {count} guesses.\n")
+                    playAgain = input(f'Would you like to play again? \n')
+                    count = 1
+                    if playAgain.lower() != 'yes':
+                        print('Thank you for playing!')
+    # ----------------------------------------------------------------------------------------------------------------------#
+    elif gameChoice.lower() == 'n':
 
+        playAgain = 'yes'
+        print()
+        numGuess = ''
+        num = random.uniform(0, 1000)
+        count = 1
+        # print(int(num))
+ # ----------------------------------------------------------------------------------------------------------------------#
+# NUMBER GUESSING GAME
+        while playAgain.lower() == 'yes':
+            print('Welcome to the number guessing game!\n')
+            numGuess = int(input('Take your first guess at my number: '))
+ # ----------------------------------------------------------------------------------------------------------------------#
 
+            while numGuess != int(num):
+                if numGuess != int(num):
+                    count += 1
+                    if numGuess > int(num):
+                        print(f'{numGuess} is too high.')
+                        numGuess = int(input(f'Guess {count}: '))
+                    if numGuess < int(num):
+                        print(f'{numGuess} is too low.')
+                        numGuess = int(input(f'Guess {count}: '))
+ # ----------------------------------------------------------------------------------------------------------------------#
 
+                if numGuess == int(num):
+                    print(f"Congratulations! You guessed the number in '{int(num)}' in {count} guesses.\n")
+                    playAgain = input(f'Would you like to play again? \n')
+                    count = 1
+                    if playAgain.lower() != 'yes':
+                        print('Thank you for playing!')
         
-    
+# ----------------------------------------------------------------------------------------------------------------------#
 
+    elif gameChoice == 'q':
+        print('Thank you for playing!')
+# ----------------------------------------------------------------------------------------------------------------------#
+
+    else:
+        print("Please enter 'w' for Word Guess, 'n' for Number Guesser or 'q' to quit: ")
