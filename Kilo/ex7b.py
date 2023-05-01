@@ -113,29 +113,30 @@ import csv
 #   For less than 5 years of service $200, for 5 years but less than 10 years $500, for ten or more years $800
 #   Enhancement: define a function to print the result.
 
-def assignBonus():
-    if int(row["years_employed"]) >= 10:
-        bonus = 800
-        print(f'\tOne time bonus of ${bonus}')
-    elif int(row["years_employed"]) >= 5:
-        bonus = 500
-        print(f'\tOne time bonus of ${bonus}')
+# Function used to assign bonus and print
+# def assignBonus():
+#     if int(row["years_employed"]) >= 10:
+#         bonus = 800
+#         print(f'\tOne time bonus of ${bonus}')
+#     elif int(row["years_employed"]) >= 5:
+#         bonus = 500
+#         print(f'\tOne time bonus of ${bonus}')
 
-    else:
-        bonus = 200
-        print(f'\tOne time bonus of ${bonus}')
+#     else:
+#         bonus = 200
+#         print(f'\tOne time bonus of ${bonus}')
 
-
-with open('Kilo/ex7b-data1.csv') as csv_file:
-    csvData = csv.DictReader(csv_file, delimiter=',')
-    lineCount = 0
-    print('\nEmployee Report:\n')
-    for row in csvData:
-        lineCount += 1
-        print(f'{lineCount}) {row["name_last"]}, {row["name_first"]}: works in the {row["department"]} ', end='')
-        print(f'department, and has been employed with our company for {row["years_employed"]} years.')
-        assignBonus()
-    print()
+# Main code line 
+# with open('Kilo/ex7b-data1.csv') as csv_file:
+#     csvData = csv.DictReader(csv_file, delimiter=',')
+#     lineCount = 0
+#     print('\nEmployee Report:\n')
+#     for row in csvData:
+#         lineCount += 1
+#         print(f'{lineCount}) {row["name_last"]}, {row["name_first"]}: works in the {row["department"]} ', end='')
+#         print(f'department, and has been employed with our company for {row["years_employed"]} years.')
+#         assignBonus()
+#     print()
 
 ##########################################################################################################################################################################################
 
@@ -143,28 +144,39 @@ with open('Kilo/ex7b-data1.csv') as csv_file:
 #7 --  WRITE data to a CSV file.  This will create a new file or will over-write an existing file.
 # Try this:
 
-# csv_extrn2 = "ex_7b_data2.csv"  
+# csvData2 = "Kilo/ex7b-data2.csv"  
 # # Data to write to the file, stored in a list of lists:
-# employees_more = [["Carver", "George Washington", "new product development", 45],
+# employees_more = [
+#                   ["Carver", "George Washington", "new product development", 45],
 #                   ["Newton", "Isaac", "R&D", 48]]
 
-# print(f"\nTask 7: Write employee data to a file named {csv_extrn2}.")
-# with open(csv_extrn2, 'w', newline='') as csv_file:
+# print(f"\nTask 7: Write employee data to a file named {csvData2}.")
+# with open(csvData2, 'w', newline='') as csv_file:
 #     field_names = ['name_last','name_first','department','years_employed']
-#     writer = csv.DictWriter(csv_file, fieldnames = field_names, delimiter=",")  #Prepares an abreviated file-pointer
+#      #Prepares an abreviated file-pointer
+#     writer = csv.DictWriter(csv_file, fieldnames = field_names, delimiter=",")
 #     writer.writeheader()
 #     # Establish a new variable "record" and assign data sets to it in sequence:
 #     for record in employees_more:
-#         writer.writerow({'name_last': record[0], 'name_first': record[1], 'department': record[2], 
-#                         'years_employed': record[3]})
+#         writer.writerow({'name_last': record[0], 'name_first': record[1], 'department': record[2], 'years_employed': record[3]})
 # # after exiting the "with" command, the external file writing session will be closed.
-# print(f"Data writing to file '{csv_extrn2}' is completed.")
+# print(f"Data writing to file '{csvData2}' is completed.")
 
 ##########################################################################################################################################################################################
 
 # Task 8 --  WRITE more data to a CSV file -- append, do not over-write, an existing file.
 # Append data from the 1st data file to the 2nd data file created in Task 7. Where:
-#     "ex_7b_data1.csv"  # Source of more data
-#     "ex_7b_data2.csv"  # Destination
+#     "ex7b-data1.csv"  # Source of more data
+#     "ex7b-data2.csv"  # Destination
 # SUGGESTION: This can be done using two, nested "with open()" commands.  The first opens the writing file, and 
 #             the 2nd may be nested in the first and opens the data file.
+
+import pandas as p
+import glob
+
+# list all csv files only
+csvFiles = glob.glob('*.csv')
+
+csvAppend = p.DataFrame()
+for file in csvFiles:
+    print('place holder')
