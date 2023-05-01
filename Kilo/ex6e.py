@@ -19,8 +19,6 @@ magicWords = ['banana', 'hope', 'stars',
 word = random.choice(magicWords)
 count = 1
 
-           
-
 while playAgain.lower() == 'yes':
 
     print('Welcome to the word guessing game!\n')
@@ -34,9 +32,10 @@ while playAgain.lower() == 'yes':
         if guess.lower() == word:
             print(f"Congratulations! You guessed the word in '{word}' in {count} guesses.\n")
             playAgain = input(f'Would you like to play again? \n')
+            count = 1
             if playAgain.lower() != 'yes':
                 print('Thank you for playing!')
-            count = 1
+            
 
 
 
