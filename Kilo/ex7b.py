@@ -179,4 +179,4 @@ csvFiles = glob.glob('*.csv')
 
 csvAppend = p.DataFrame()
 for file in csvFiles:
-    print('place holder')
+    
