@@ -35,7 +35,7 @@
 # name = input('Hello user! What is your name?\n')
 # age = int(input('Thank you, What is your age?\n'))
 
-# f = open("userInput.txt", "w")
+# f = open("txtfiles/userInput.txt", "w")
 # f.write(f"{name} is {age} years old.")
 # f.close()
 
@@ -45,7 +45,7 @@
 # 4
 # Try this.
 
-# f = open("userInput.txt", "r")
+# f = open("txtfiles/userInput.txt", "r")
 # contents = f.read()
 # print(contents)
 # f.close()
