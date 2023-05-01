@@ -17,6 +17,9 @@ guess = ''
 magicWords = ['banana', 'hope', 'stars',
              'whiskey', 'fight', 'money']
 word = random.choice(magicWords)
+hints = [f'The word starts with a {word[0]}',
+         f'The word ends with a {word[-1]}'
+         f'The word has a {word[3]} in it']
 count = 1
 
 while playAgain.lower() == 'yes':
@@ -27,6 +30,10 @@ while playAgain.lower() == 'yes':
     while guess.lower() != word:
         if guess.lower() != word:
             count += 1
+        if count == 3 or count == 6 or count == 9:
+            hint = input('Would you like a hint? (yes / no):\n')
+            if hint.lower() == 'yes':
+                print(random.choice(hints))
         guess = input(f'Guess {count}: ')
 
         if guess.lower() == word:
