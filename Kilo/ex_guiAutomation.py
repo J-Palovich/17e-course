@@ -15,18 +15,18 @@ import random
 # move = range(100,100)
 
 
-while True:
-    print("moving now!")
-    pyautogui.moveRel(100, 0)
-    pyautogui.moveRel(-100, 0)
-    time.sleep(0)
+# while True:
+#     print("moving now!")
+#     pyautogui.moveRel(100, 0)
+#     pyautogui.moveRel(-100, 0)
+#     time.sleep(0)
 
 ############################################################################################################################################################################################################
 
 # The following Python program will automatically input keypresses to control the Outlook Web App. I don't recommend running it directly, rather, you can modify the example to your own needs.
 
-# import pyautogui
-# import time
+import pyautogui
+import time
 
 
 
