@@ -8,14 +8,15 @@ import sqlite3
 def fetchData():
     #Acquire and transform the data, prepare variables for use in the for loop
     url = ("https://data.sec.gov/submissions/CIK0001288776.json")
-    
+ 
     response = requests.get(url)
     content = response.text
+    f = open("responsestuff.html", "w")
+    f.write(content)
+    f.close()
     contentDict = json.loads(content)
     print()
     # productList = contentDict[""][""]
-
-
 
 def main():
     #creates SQLite database connetion to database that resides in memory 
@@ -77,8 +78,8 @@ def main():
     # data.sec.gov/submissions/
     # Each entity’s current filing history is available at the following URL:
 
-https://data.sec.gov/submissions/CIK##########.json
-Where the ########## is the entity’s 10-digit Central Index Key (CIK), including leading zeros.
+# https://data.sec.gov/submissions/CIK##########.json
+# Where the ########## is the entity’s 10-digit Central Index Key (CIK), including leading zeros.
     # open api keys: https://github.com/public-apis/public-apis
     # https://www.w3resource.com/python-exercises/sqlite/python-sqlite-exercise-3.php
 
