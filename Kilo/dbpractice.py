@@ -7,18 +7,12 @@ import sqlite3
 
 def fetchData():
     #Acquire and transform the data, prepare variables for use in the for loop
-    url = ("https://open.api.ebay.com/shopping?"
-                            "callname=FindProducts&"
-                            "responseencoding=JSON&"
-                            "siteid=0&"
-                            "version=967&"
-                            "QueryKeywords=harry%20potter&"
-                            "AvailableItemsOnly=true&"
-                            "MaxEntries=2")
-    response = requests.get(url)
+    url = ("https://data.sec.gov/submissions/CIK0001288776.json")
     
+    response = requests.get(url)
     content = response.text
     contentDict = json.loads(content)
+    print()
     # productList = contentDict[""][""]
 
 
@@ -38,9 +32,6 @@ def main():
         #Create a cursor (an object that selects data in and operates on the table)
         cur = con.cursor()
         cur.execute(selectQuery)
-
-        # if table exists, prints table name  (currently no table exists)
-        # cur1.execute("SELECT name FROM sqlite_master WHERE type='table';")
         
         # records and prints SQLite version
         record = cur.fetchall()
@@ -53,6 +44,8 @@ def main():
         cur.execute(f"CREATE TABLE IF NOT EXISTS {tableName} (id, callName, siteID, keywords, available)")
         # Example 3: cur.execute("CREATE TABLE temp_agent_master(agent_code char(6),agent_name char(40),working_area char(35),commission decimal(10,2),phone_no char(15) NULL);")
 
+        # if table exists, prints table name  (currently no table exists)
+        cur.execute("SELECT name FROM sqlite_master WHERE type='table';")
 
         #Clears all data from table, columns will not be deleted. The cur.execute statements are SQL(Structured Query Langauge) commands.
         #SQL is the main language used to communicate with databases. Most data breaches occur because of a SQL-based vulnerability like SQL injection/SQLi.
@@ -80,6 +73,13 @@ def main():
 
 
     # additional resources: 
+    # SEC API:
+    # data.sec.gov/submissions/
+    # Each entity’s current filing history is available at the following URL:
+
+https://data.sec.gov/submissions/CIK##########.json
+Where the ########## is the entity’s 10-digit Central Index Key (CIK), including leading zeros.
+    # open api keys: https://github.com/public-apis/public-apis
     # https://www.w3resource.com/python-exercises/sqlite/python-sqlite-exercise-3.php
 
     # eBay APIs: https://developer.ebay.com/Devzone/shopping/docs/CallRef/FindProducts.html#Samples
@@ -92,6 +92,8 @@ def main():
     #    AvailableItemsOnly=true&
     #    MaxEntries=2 
 
+
+    # URL Haus API doc: https://urlhaus-api.abuse.ch/
 
 
 
