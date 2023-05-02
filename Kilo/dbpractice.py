@@ -19,7 +19,7 @@ def fetchData():
     
     content = response.text
     contentDict = json.loads(content)
-    # sproductList = contentDict[""][""]
+    # productList = contentDict[""][""]
 
 
 
@@ -99,4 +99,3 @@ def main():
 
 
 fetchData()
-
