@@ -1,3 +1,5 @@
+# Merges the listed pdf files into a single pdf file :)
+
 from pypdf import PdfWriter as p
 
 merger = p()
