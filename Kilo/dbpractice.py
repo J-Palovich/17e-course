@@ -20,7 +20,7 @@ def fetchData():
             "AvailableItemsOnly=true&"
             "MaxEntries=2")
      
-    response = requests.get(url, headers=headers)
+    response = requests.get(url)
     content = response.text
     # f = open("responsestuff.html", "w")
     # f.write(content)
