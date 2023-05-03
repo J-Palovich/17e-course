@@ -1,22 +1,26 @@
 import json
 import requests
 import sqlite3
+import os
+from requests.auth import HTTPBasicAuth
 
-
+# token = os.environ.get('v^1.1#i^1#I^3#p^1#r^0#f^0#t^H4sIAAAAAAAAAOVYXWwURRzv9dpa5EuSgsZUOVdIFNy92d373PQuXlugJ6Ut3FFKDZDZ3bl27X5ld9b2Gg2XBiigBJsY4wtShAfiA1ECIUJ8MAqJFjEaMICRGHmQGEn0Qb6Mxtm7Uq6VQKGX2MR92czM//M3/4+ZAbmqGUu2NW27PtvzSPlwDuTKPR52JphRVbl0jrf8ycoyUETgGc4tylUMeK/U2VBTTWENsk1Dt5GvT1N1W8hPxijH0gUD2oot6FBDtoAlIZVY1SxwDBBMy8CGZKiUL9kYo9goCodkwEqQDwUhipBZ/bbMtBGjYIQLBFgRyBkR8GLGXbdtByV1G0MdxygOcDwNgjTg02xY4IMCxzIcy3VSvnZk2YqhExIGUPG8uUKe1yqy9d6mQttGFiZCqHgysTzVmkg2LmtJ1/mLZMVHcUhhiB17/KjBkJGvHaoOurcaO08tpBxJQrZN+eMFDeOFConbxjyE+QWo+WA4jIAsR0Q5igLRkkC53LA0iO9thzujyHQmTyogHSs4ez9ECRriK0jCo6MWIiLZ6HN/qx2oKhkFWTFqWX1ifaKtjYq/5Opsgyoti6YFJazQqfoOOiTBaCYYykTogMiG5SDkRhUVpI3CPEFTg6HLigua7WsxcD0iVqOJ2HBF2BCiVr3VSmSwa1ExXfQ2hiDY6W5qYRcd3K27+4o0AoQvP7z/DoxxY2wpooPRmISJC3mISNqYpiJTExfzsTgaPn12jOrG2BT8/t7eXqaXZwyry88BwPo7VjWnpG6kQYrQurleoFfuz0AreVckRDhtRcBZk9jSR2KVGKB3UfEA4EI8O4r7eLPiE2f/NVHks398RpQqQxAMSCIXCHMBJIYDHCxFhsRHg9Tv2oFEmKU1aPUgbKpQQrRE4szRkKXIRFyG4yMZRMuhaIYORDMZWgzKIZrNIAQQEkUpGvk/JcpkQz2FJAvhksR6yeJ8OSuGTZROcEvbGpS2/p5Qz+pGtFqLrgP9utO0Su/vgCvaMXay/YnYZLPhrs43qApBJk30lwIAN9dLB0KTYWMkT8m9lGSYqM1QFSk7vTaYt+Q2aOFsvZMl4xRSVfKbkqsJ00yWpmKXzMkHLBYP53fpOtV/1KXu6pXtBu708srlt4kAaCoM6UNurmcZydD8BiSHEHd6U95q3wTCuxL5RSfLdDnIxsQSmZwDJ82kkGLOkJYmT56l0DCJE5NnIZcM2ZHwQynKd2aGoKl0dWP7gXT2TQUU0VF7Js8iI6hOKUQVctWYVgFKPC24rMiFOwKT95uxX5UYC9mGY5HrEdPqHpnTRg/SyQEEW4aqIqt9asnqll5NczAUVTTdanAJapFCct1zY5qdkNhQhCcXUp6bmm9S/vyzabp1kFJ3zge4CfnHv8vEy/IfO+D5BAx4Pi73eEAY0OxS8HyVd22FdxZlk9rD2FCXRaOPUWCGIWVPh9ixENODsiZUrPIqj3LxrHSj6EVoeAN4YuxNaIaXnVn0QARq76xUsnMfn83xIAh4NswHObYTPHtntYJdUFGjHVpz6jit7Q36Bk+dHN7/4Y1o6lEwe4zI46ksI+FbZlbN2vlr+sWfFx71OvNfO+3buPvYZ8ziNTd3tO7d413Obz5wuvpw94If57HPnPuhcu5IiC0b2rK1c3DPzC111+SRb3alw58OPbb1zBcnIt9eB6l5B95TVpypiVwxFg+dzR2p/u4tsbyvmldfH6nd9Xv/BfPcvsGPagLvtu84PqRfXL/jne1fD1068NO6E/7NK+u2Dz9XtjP3ZsOfT/UnY38cfLvp0vv7NlZeO781+cLQrY6d5zfH0M0vDw2Iv9xsXls+2FPTvGh+7f7aQ9XxXNXVy3+taI9lD7+8bGRe674tJ0ONc65/Pthy+be/FyrrPrhyYveRr75PLDkYuUC/seHqpaMr+73Hnq6V+25pdSOFbfwH7tOOKKsTAAA=')
+# headers = {'Authorization': f'Token {token}'}
+# url2 = 'https://api.ebay.com/oauth/api_scope'
 
 
 def fetchData():
     #Acquire and transform the data, prepare variables for use in the for loop
     url = ("https://open.api.ebay.com/shopping?"
             "callname=FindProducts&"
-            "responseencoding=XML&"
+            "responseencoding=JSON&"
             "siteid=0&"
             "version=967&"
             "QueryKeywords=harry%20potter&"
             "AvailableItemsOnly=true&"
             "MaxEntries=2")
- 
-    response = requests.get(url)
+     
+    response = requests.get(url, headers=headers)
     content = response.text
     # f = open("responsestuff.html", "w")
     # f.write(content)
