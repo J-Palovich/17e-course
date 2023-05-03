@@ -7,13 +7,20 @@ import sqlite3
 
 def fetchData():
     #Acquire and transform the data, prepare variables for use in the for loop
-    url = ("https://data.sec.gov/submissions/CIK0001288776.json")
+    url = ("https://open.api.ebay.com/shopping?"
+            "callname=FindProducts&"
+            "responseencoding=XML&"
+            "siteid=0&"
+            "version=967&"
+            "QueryKeywords=harry%20potter&"
+            "AvailableItemsOnly=true&"
+            "MaxEntries=2")
  
     response = requests.get(url)
     content = response.text
-    f = open("responsestuff.html", "w")
-    f.write(content)
-    f.close()
+    # f = open("responsestuff.html", "w")
+    # f.write(content)
+    # f.close()
     contentDict = json.loads(content)
     print()
     # productList = contentDict[""][""]
