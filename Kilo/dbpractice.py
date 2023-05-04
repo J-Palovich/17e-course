@@ -65,6 +65,7 @@ def main():
         cur.execute("DELETE FROM products")
 
         fetchData()
+        
 
     except sqlite3.Error as error:
         print('\nError while connecting to sqlite')
@@ -75,7 +76,7 @@ def main():
             print('\nThe SQLite connection is closed.')
 
 
-
+main()
 
 
 
